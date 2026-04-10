@@ -1,0 +1,24 @@
+//3740. Minimum Distance Between Three Equal Elements I
+class Solution {
+    public int minimumDistance(int[] nums) {
+        int n=nums.length;
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            int count = 1; 
+
+            for (int j = i + 1; j < n; j++) {
+                if (nums[j] == nums[i]) {
+                    count++;
+
+                    if (count == 3) {
+                        int dist = 2 * (j - i);
+                        min = Math.min(min, dist);
+                        break; 
+                    }
+                }
+            }
+        }
+       return min == Integer.MAX_VALUE ? -1 : min;
+        
+    }
+}
