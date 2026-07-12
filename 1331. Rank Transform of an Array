@@ -1,0 +1,25 @@
+//1331. Rank Transform of an Array//
+class Solution {
+    public int[] arrayRankTransform(int[] arr) {
+
+        int[] copy = arr.clone();     // Copy the array
+        Arrays.sort(copy);            // Sort the copy
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int rank = 1;
+
+        // Store rank for each unique number
+        for (int num : copy) {
+            if (!map.containsKey(num)) {
+                map.put(num, rank++);
+            }
+        }
+
+        // Replace original elements with their ranks
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = map.get(arr[i]);
+        }
+
+        return arr;
+    }
+}
