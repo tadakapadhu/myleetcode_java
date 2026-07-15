@@ -1,0 +1,16 @@
+class Solution {
+    public int gcdOfOddEvenSums(int n) {
+        int sumOdd=n*n;
+        int sumEven=n*(n+1);
+
+          return gcd(sumOdd,sumEven);
+    }
+    public int gcd(int o,int e){
+        while(e!=0){
+            int temp=e;
+            e=o%e;
+            o=temp;
+        }
+        return o;
+    }
+}
