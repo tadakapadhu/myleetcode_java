@@ -1,0 +1,17 @@
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int n=accounts.length;
+        int maxwealth=0;
+        for(int[] customer : accounts){
+           int cwealth=0;
+            for(int i:customer){
+                cwealth+=i;
+            }
+            if(cwealth>maxwealth){
+                maxwealth=cwealth;
+            }
+        }
+        return maxwealth;
+
+}
+}
